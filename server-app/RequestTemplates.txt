@@ -1,0 +1,56 @@
+1) Request: POST http://localhost:3000/user/login - user login
+    Body: {
+        login,
+        password
+    }
+    Response(success): {token: 'JWToken'}
+
+2) Request: POST http://localhost:3000/user/register - user register
+    Body: {
+        login,
+        password,
+        email
+    }
+    Response(success): {token: 'JWToken}
+
+3) Request: DELETE http://localhost:3000/user/:id - user delete
+    Guard: Admin Guard(if user have ROLE_ADMIN)
+    Params: {
+        id
+    }
+    Response(success): HttpStatus 200
+
+4) Request: GET http://localhost:3000/shop/list - get product list
+    Params: none
+    Response(success): {products: {'list of products'}}
+
+5) Request: POST http://localhost:3000/shop/add - product add
+    Guard: Admin Guard
+    Body: {
+        name,
+        price
+    }
+    Response(success): {products: {'list of products'}}
+
+6) Request: PATCH http://localhost:3000/shop/update - product update
+    Guard: Admin Guard
+    Body: {
+        id,
+        name,
+        price
+    }
+    Response(success): {products: {'list of products'}}
+
+7) Request: DELETE http://localhost:3000/shop/:id - product delete
+    Guard: Admin Guard
+    Params: {
+        id
+    }
+    Response(success): {products: {'list of products'}}
+
+8) Request: POST http://localhost:3000/shop/buy - product buy
+    Guard: Auth Guard(if JWToken is valid)
+    Body: {
+        id
+    }
+    Response(success): {result: {'Payment intent info'}}
