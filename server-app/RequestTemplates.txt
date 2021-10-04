@@ -54,3 +54,20 @@
         id
     }
     Response(success): {result: {'Payment intent info'}}
+
+
+Accounts for testing: 
+Admin: {
+    login: yankee1234
+    password: admin1234
+}
+Users: {
+    {
+        login: someUser
+        password: user1234
+    },
+    {
+        login: someUser2
+        password: user12345
+    }
+}
